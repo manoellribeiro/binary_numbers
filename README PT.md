@@ -1,5 +1,7 @@
 # Operações com Números Binários
 
+![](https://github.com/manoellribeiro/binary_rumbers/blob/master/Preview%20Image.png)
+
 ## Sobre esse projeto
 
 Aplicativo desenvolvido com Flutter e Dart para realizar operações de soma, subtração, multiplicação, divisão e resto com números binários.
@@ -47,5 +49,5 @@ Thank you.
 
 ## Licença
 
-This project is licensed under the MIT License - See the [LICENSE.md](https://github.com/manoellribeiro/budget-CivilEngineeringProjects/blob/master/LICENSE) for details.
+This project is licensed under the MIT License - See the [LICENSE.md](https://github.com/manoellribeiro/binary_rumbers/blob/master/LICENSE) for details.
 
