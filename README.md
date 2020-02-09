@@ -2,6 +2,8 @@
 
 ![](https://github.com/manoellribeiro/binary_rumbers/blob/master/Preview%20Image.png)
 
+*[Readme EN](https://github.com/manoellribeiro/binary_rumbers/blob/master/README.md)
+
 ## About this Project
 
 Mobile application developed with Flutter and Dart to do math operations as sum, subtraction, multiplication, division and rest with binary numbers.
