@@ -2,7 +2,7 @@
 
 ![](https://github.com/manoellribeiro/binary_rumbers/blob/master/Preview%20Image.png)
 
-* [Readme EN](https://github.com/manoellribeiro/binary_rumbers/blob/master/README.md)
+* [Readme PT](https://github.com/manoellribeiro/binary_rumbers/blob/master/README%20PT.md)
 
 ## About this Project
 
