@@ -115,7 +115,7 @@ abstract class _HomeBase with Store {
     'Resto'
   ];
 
-
+  //teste do git
   @action
   void calculate(){
     int firstNumber = int.tryParse(((int.parse(firstBinaryNumber, radix: 2)).toRadixString(10)));
