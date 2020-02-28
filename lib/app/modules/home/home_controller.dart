@@ -1,4 +1,4 @@
-import 'package:mobx/mobx.dart';
+﻿import 'package:mobx/mobx.dart';
 
 part 'home_controller.g.dart';
 
@@ -115,41 +115,72 @@ abstract class _HomeBase with Store {
     'Resto'
   ];
 
-  //teste do git
   @action
-  void calculate(){
-    int firstNumber = int.tryParse(((int.parse(firstBinaryNumber, radix: 2)).toRadixString(10)));
-    int secondNumber = int.tryParse(((int.parse(secondBinaryNumber, radix: 2)).toRadixString(10)));
+  void sum(){
     int resultNumber;
+    resultNumber = int.tryParse(((int.parse(firstBinaryNumber, radix: 2)).toRadixString(10)))
+    +
+    int.tryParse(((int.parse(secondBinaryNumber, radix: 2)).toRadixString(10)));
+    resultText = (resultNumber).toRadixString(2);
+  }
+
+  @action
+  void subtraction(){
+    int resultNumber;
+    resultNumber = int.tryParse(((int.parse(firstBinaryNumber, radix: 2)).toRadixString(10)))
+    -
+    int.tryParse(((int.parse(secondBinaryNumber, radix: 2)).toRadixString(10)));
+    resultText = (resultNumber).toRadixString(2);
+  }
+  
+  @action
+  void multiplication(){
+    int resultNumber;
+    resultNumber = (int.tryParse(((int.parse(firstBinaryNumber, radix: 2)).toRadixString(10))))
+    *
+    (int.tryParse(((int.parse(secondBinaryNumber, radix: 2)).toRadixString(10))));
+    resultText = (resultNumber).toRadixString(2);
+  }
+
+  @action
+  void division(){
+    int resultNumber;
+    if((int.tryParse(((int.parse(secondBinaryNumber, radix: 2)).toRadixString(10)))) != 0){
+    resultNumber = (int.tryParse(((int.parse(firstBinaryNumber, radix: 2)).toRadixString(10))))
+    ~/
+    (int.tryParse(((int.parse(secondBinaryNumber, radix: 2)).toRadixString(10))));
+    resultText = (resultNumber).toRadixString(2);
+    }else {
+      resultText = "Escolha um divisor diferente de 0";
+    }
+  }
+
+  @action
+  void rest(){
+    int resultNumber;
+    resultNumber = (int.tryParse(((int.parse(firstBinaryNumber, radix: 2)).toRadixString(10))))
+    %
+    (int.tryParse(((int.parse(secondBinaryNumber, radix: 2)).toRadixString(10)))); 
+    resultText = (resultNumber).toRadixString(2);
+  }
+
+
+  void calculate(){
     switch (hintText) {
-      case "Soma":{
-        resultNumber = firstNumber + secondNumber;
-        resultText = (resultNumber).toRadixString(2);
-      }
+      case "Soma":
+        sum();
         break;
-      case "Subtração":{
-        resultNumber = firstNumber - secondNumber;
-        resultText = (resultNumber).toRadixString(2);
-      }
+      case "Subtração":
+        subtraction();
         break;
-      case "Multiplicação":{
-        resultNumber = firstNumber*secondNumber;
-        resultText = (resultNumber).toRadixString(2);
-      }
+      case "Multiplicação":
+        multiplication();
         break;
-      case "Divisão": {
-        if(secondNumber != 0){
-        resultNumber = firstNumber~/secondNumber;
-        resultText =(resultNumber).toRadixString(2);
-        }else{
-          resultText = "Escolha um divisor diferente de 0"; 
-        }
-      }
+      case "Divisão":
+        division();
         break;
-      case "Resto": {
-        resultNumber = firstNumber % secondNumber;
-        resultText = (resultNumber).toRadixString(2);
-      }
+      case "Resto":
+        rest();
         break;
       default: {
         resultText = "Escolha uma operação";
@@ -157,7 +188,6 @@ abstract class _HomeBase with Store {
     }
   }
 
-
-
+ 
 
 }

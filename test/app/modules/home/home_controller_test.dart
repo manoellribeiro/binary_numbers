@@ -121,14 +121,52 @@ void main() {
   });
 
 
-  group("calculate() method is doing the right operation", (){
+  group("calculate() method is calling the right operation", (){
     test("Sum is working", (){
-    home.secondBinaryNumber = '01';
+    home.firstBinaryNumber = '01';
     home.secondBinaryNumber = '0101';
     home.hintText = 'Soma';
     home.calculate();
     expect(home.resultText, '110');
   });
-
+    test("Subtraction is working", (){
+    home.firstBinaryNumber = '01';
+    home.secondBinaryNumber = '0101';
+    home.hintText = 'Subtração';
+    home.calculate();
+    expect(home.resultText, '-100');
   });
+    test("Multiplication is working", (){
+    home.firstBinaryNumber = '01';
+    home.secondBinaryNumber = '0101';
+    home.hintText = 'Multiplicação';
+    home.calculate();
+    expect(home.resultText, '101');
+  });
+    test("Division is working", (){
+    home.firstBinaryNumber = '01';
+    home.secondBinaryNumber = '0101';
+    home.hintText = 'Divisão';
+    home.calculate();
+    expect(home.resultText, '0');
+  });
+    test("Division is recognizing 0 as divisor", (){
+    home.firstBinaryNumber = '01010101';
+    home.secondBinaryNumber = '0';
+    home.hintText = 'Divisão';
+    home.calculate();
+    expect(home.resultText, "Escolha um divisor diferente de 0");
+  });
+    test("Rest is working", (){
+    home.firstBinaryNumber = '01';
+    home.secondBinaryNumber = '0101';
+    home.hintText = 'Resto';
+    home.calculate();
+    expect(home.resultText, '1');
+  });
+  });
+
+
+
+  
 }

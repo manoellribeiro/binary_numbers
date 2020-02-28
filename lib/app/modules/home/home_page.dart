@@ -62,6 +62,7 @@ class _HomePageState extends State<HomePage> {
                   Observer(
                     builder: (_){
                       return TextFieldWidget(
+                  Key("FirstTextFieldKey"),
                   "Primeiro número binário",
                   controller.validateFirstBinaryNumberValue(),
                   controller.getFirstBinaryNumberValue,
@@ -75,6 +76,7 @@ class _HomePageState extends State<HomePage> {
                   Observer(
                     builder: (_){
                       return TextFieldWidget(
+                  Key("SecondTextFieldKey"),
                   "Segundo número binário",
                   controller.validateSecondBinaryNumberValue(),
                   controller.getSecondBinaryNumberValue,

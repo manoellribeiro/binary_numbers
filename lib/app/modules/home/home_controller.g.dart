@@ -116,10 +116,50 @@ mixin _$HomeController on _HomeBase, Store {
   }
 
   @override
-  void calculate() {
+  void sum() {
     final _$actionInfo = _$_HomeBaseActionController.startAction();
     try {
-      return super.calculate();
+      return super.sum();
+    } finally {
+      _$_HomeBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void subtraction() {
+    final _$actionInfo = _$_HomeBaseActionController.startAction();
+    try {
+      return super.subtraction();
+    } finally {
+      _$_HomeBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void multiplication() {
+    final _$actionInfo = _$_HomeBaseActionController.startAction();
+    try {
+      return super.multiplication();
+    } finally {
+      _$_HomeBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void division() {
+    final _$actionInfo = _$_HomeBaseActionController.startAction();
+    try {
+      return super.division();
+    } finally {
+      _$_HomeBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void rest() {
+    final _$actionInfo = _$_HomeBaseActionController.startAction();
+    try {
+      return super.rest();
     } finally {
       _$_HomeBaseActionController.endAction(_$actionInfo);
     }

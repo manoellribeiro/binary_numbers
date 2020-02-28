@@ -8,7 +8,7 @@ class TextFieldWidget extends StatelessWidget {
   final IconData iconData;
   
   
-  const TextFieldWidget(this.text, this.errorFunction, this.onChanged, this.keyboardType, this.iconData);
+  const TextFieldWidget(Key key, this.text, this.errorFunction, this.onChanged, this.keyboardType, this.iconData) : super(key: key); 
 
   @override
   Widget build(BuildContext context) {
