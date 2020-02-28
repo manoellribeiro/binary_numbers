@@ -101,18 +101,6 @@ abstract class _HomeBase with Store {
   }  
 
 
-  bool checkIfItIsABinary(int number){
-    int copyOfInput = number;
-    while(copyOfInput != 0){
-      if (copyOfInput % 10 > 1){
-        return false;
-      }
-      copyOfInput = int.parse("${copyOfInput/10}");
-    }
-    return true;
-  }
-
-
   @observable
   String hintText = "Escolha a operação";
 
@@ -126,6 +114,7 @@ abstract class _HomeBase with Store {
     'Divisão',
     'Resto'
   ];
+
 
   @action
   void calculate(){
