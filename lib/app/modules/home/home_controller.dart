@@ -12,30 +12,20 @@ abstract class _HomeBase with Store {
   @action
   getFirstBinaryNumberValue(value) => firstBinaryNumber = value;
 
-  String validateFirstBinaryNumberValue(){
+String validateFirstBinaryNumberValue(){
     try{
-      try{
         RegExp recognizingNonBinaryNumbers = RegExp("[2-9]");
         if(recognizingNonBinaryNumbers.hasMatch(firstBinaryNumber)){
         return "Insira um número binário";
-      }else{
-        try{
-          if(((0 <= int.tryParse(((int.parse(firstBinaryNumber, radix: 2)).toRadixString(10))))) & ((int.tryParse(((int.parse(firstBinaryNumber, radix: 2)).toRadixString(10)))) <= 255 )){
-      return null;
-    }else{
-      return "Insira um número entre 0 e 255";
-    }
-        } on FormatException{
-          return "Insira um número";
+        }else if(((0 <= int.tryParse(((int.parse(firstBinaryNumber, radix: 2)).toRadixString(10))))) & ((int.tryParse(((int.parse(firstBinaryNumber, radix: 2)).toRadixString(10)))) <= 255 )){
+          return null;
+        }else {
+          return "Insira um número entre 0 e 255";
         }
-      }
-      }on NoSuchMethodError{
-        return "Insira um número";
-      }
-    }on ArgumentError{
-      return "Insira um número"; 
-    }
+  }catch(e){
+    return "Insira um número";
   }
+}
 
   @computed
   bool get validateFirstBinaryNumberForm{
@@ -52,30 +42,20 @@ abstract class _HomeBase with Store {
   @action
   getSecondBinaryNumberValue(value) => secondBinaryNumber = value; 
 
-  String validateSecondBinaryNumberValue(){
+String validateSecondBinaryNumberValue(){
     try{
-      try{
         RegExp recognizingNonBinaryNumbers = RegExp("[2-9]");
         if(recognizingNonBinaryNumbers.hasMatch(secondBinaryNumber)){
         return "Insira um número binário";
-      }else{
-        try{
-          if(((0 <= int.tryParse(((int.parse(secondBinaryNumber, radix: 2)).toRadixString(10))))) & ((int.tryParse(((int.parse(secondBinaryNumber, radix: 2)).toRadixString(10)))) <= 255 )){
-      return null;
-    }else{
-      return "Insira um número entre 0 e 255";
-    }
-        } on FormatException{
-          return "Insira um número";
+        }else if(((0 <= int.tryParse(((int.parse(secondBinaryNumber, radix: 2)).toRadixString(10))))) & ((int.tryParse(((int.parse(secondBinaryNumber, radix: 2)).toRadixString(10)))) <= 255 )){
+          return null;
+        }else {
+          return "Insira um número entre 0 e 255";
         }
-      }
-      }on NoSuchMethodError{
-        return "Insira um número";
-      }
-    }on ArgumentError{
-      return "Insira um número"; 
-    }
+  }catch(e){
+    return "Insira um número";
   }
+}
 
   @computed
   bool get validateSecondBinaryNumberForm{
@@ -85,7 +65,6 @@ abstract class _HomeBase with Store {
       return false;
     }
   }  
-
 
   @observable
   String hintText = "Escolha a operação";
@@ -150,7 +129,6 @@ abstract class _HomeBase with Store {
     resultText = (resultNumber).toRadixString(2);
   }
 
-
   void calculate(){
     switch (hintText) {
       case "Soma":
@@ -173,7 +151,4 @@ abstract class _HomeBase with Store {
       }
     }
   }
-
- 
-
 }
