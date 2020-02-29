@@ -164,9 +164,5 @@ void main() {
     home.calculate();
     expect(home.resultText, '1');
   });
-  });
-
-
-
-  
+  });  
 }

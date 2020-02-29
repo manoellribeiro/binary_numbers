@@ -15,15 +15,8 @@ abstract class _HomeBase with Store {
   String validateFirstBinaryNumberValue(){
     try{
       try{
-        if((firstBinaryNumber.contains('2') || 
-        (firstBinaryNumber.contains('3')) ||
-         (firstBinaryNumber.contains('4')) ||
-          (firstBinaryNumber.contains('4')) ||
-          (firstBinaryNumber.contains('5')) ||
-          (firstBinaryNumber.contains('6')) ||
-          (firstBinaryNumber.contains('7')) ||
-          (firstBinaryNumber.contains('8')) ||
-          (firstBinaryNumber.contains('9')))){
+        RegExp recognizingNonBinaryNumbers = RegExp("[2-9]");
+        if(recognizingNonBinaryNumbers.hasMatch(firstBinaryNumber)){
         return "Insira um número binário";
       }else{
         try{
@@ -62,15 +55,8 @@ abstract class _HomeBase with Store {
   String validateSecondBinaryNumberValue(){
     try{
       try{
-        if((secondBinaryNumber.contains('2') || 
-        (secondBinaryNumber.contains('3')) ||
-         (secondBinaryNumber.contains('4')) ||
-          (secondBinaryNumber.contains('4')) ||
-          (secondBinaryNumber.contains('5')) ||
-          (secondBinaryNumber.contains('6')) ||
-          (secondBinaryNumber.contains('7')) ||
-          (secondBinaryNumber.contains('8')) ||
-          (secondBinaryNumber.contains('9')))){
+        RegExp recognizingNonBinaryNumbers = RegExp("[2-9]");
+        if(recognizingNonBinaryNumbers.hasMatch(secondBinaryNumber)){
         return "Insira um número binário";
       }else{
         try{
