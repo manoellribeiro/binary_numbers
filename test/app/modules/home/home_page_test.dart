@@ -27,10 +27,67 @@ void main() {
   expect(find.byIcon(Icons.filter_2), findsOneWidget);
   });
 
-  testWidgets('Testing TextFormFieldWidgets', (WidgetTester tester) async {
+  group("Testing TextFormFieldWidgets", () {
+    testWidgets('Testing if the first TextFormFieldWidgets is showing non-binary number alert', (WidgetTester tester) async {
     await tester.pumpWidget(buildTestableWidget(HomePage()));
-
     await tester.enterText(find.byKey(Key("FirstTextFieldKey")), "2");
-    expect(controller.validateFirstBinaryNumberValue(), 'Insira um número binário');
+    await tester.pump();
+    expect(find.text("Insira um número binário"), findsOneWidget);
+  });
+
+  testWidgets('Testing if the first TextFormFieldWidgets is showing greater than 255 and smaller than 0 alert', (WidgetTester tester) async {
+    await tester.pumpWidget(buildTestableWidget(HomePage()));
+    await tester.enterText(find.byKey(Key("FirstTextFieldKey")), "-01");
+    await tester.pump();
+    expect(find.text("Insira um número entre 0 e 255"), findsOneWidget);
+
+    await tester.enterText(find.byKey(Key("FirstTextFieldKey")), "1111111111111");
+    await tester.pump();
+    expect(find.text("Insira um número entre 0 e 255"), findsOneWidget);
+  });
+  
+  
+  testWidgets('Testing if the second TextFormFieldWidgets is showing non-binary number alert', (WidgetTester tester) async {
+    await tester.pumpWidget(buildTestableWidget(HomePage()));
+    await tester.enterText(find.byKey(Key("SecondTextFieldKey")), "2");
+    await tester.pump();
+    expect(find.text("Insira um número binário"), findsOneWidget);
+  });
+
+  testWidgets('Testing if the second TextFormFieldWidgets is showing greater than 255 and smaller than 0 alert', (WidgetTester tester) async {
+    await tester.pumpWidget(buildTestableWidget(HomePage()));
+    await tester.enterText(find.byKey(Key("SecondTextFieldKey")), "-01");
+    await tester.pump();
+    expect(find.text("Insira um número entre 0 e 255"), findsOneWidget);
+
+    await tester.enterText(find.byKey(Key("SecondTextFieldKey")), "1111111111111");
+    await tester.pump();
+    expect(find.text("Insira um número entre 0 e 255"), findsOneWidget);
+  });
+
+  testWidgets('Alert is fading if the user input is only binary numbers', (WidgetTester tester) async {
+    await tester.pumpWidget(buildTestableWidget(HomePage()));
+    await tester.enterText(find.byKey(Key("FirstTextFieldKey")), "011");
+    await tester.enterText(find.byKey(Key("SecondTextFieldKey")), "0101");
+    await tester.pump();
+    expect(find.text('Insira um número'), findsNothing);
+    expect(find.text("Insira um número binário"), findsNothing);
+    expect(find.text("Insira um número entre 0 e 255"), findsNothing);
+  });
+
+  });
+
+  group("Testing DropdownButton", (){
+
+    testWidgets("Tap is working", (WidgetTester tester) async{
+      await tester.pumpWidget(buildTestableWidget(HomePage()));
+      await tester.tap(find.byKey(Key("DropdownButton")));
+
+      expect(find.text("Soma"), findsOneWidget);
+      expect(find.text("Subtração"), findsOneWidget);
+      expect(find.text("Multiplicação"), findsOneWidget);
+      expect(find.text("Divisão"), findsOneWidget);
+      expect(find.text("Resto"), findsOneWidget);
+    });
   });
 }

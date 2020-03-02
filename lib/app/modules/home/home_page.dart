@@ -91,6 +91,7 @@ class _HomePageState extends State<HomePage> {
                           return Align(
                             alignment: Alignment.centerLeft,
                             child: DropdownButton<String>(
+                                key: Key("DropdownButton"),
                                 isExpanded: false,
                                 elevation: 0,
                                 hint: Text(controller.hintText),
