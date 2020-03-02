@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_modular/flutter_modular_test.dart';
-import 'package:problema_dois_digistarts/app/modules/home/components/textField/textField_widget.dart';
 import 'package:problema_dois_digistarts/app/modules/home/home_controller.dart';
 import 'package:problema_dois_digistarts/app/modules/home/home_module.dart';
-
 import 'package:problema_dois_digistarts/app/modules/home/home_page.dart';
 
 void main() {
@@ -89,5 +87,45 @@ void main() {
       expect(find.text("Divisão"), findsOneWidget);
       expect(find.text("Resto"), findsOneWidget);
     });
+  
+  group("RaisedButton has disable and able states", (){
+    testWidgets("RaisedButton is disable when user inputs are both null ", (WidgetTester tester) async {
+      await tester.pumpWidget(buildTestableWidget(HomePage()));
+      await tester.enterText(find.byKey(Key("FirstTextFieldKey")), "");
+      await tester.enterText(find.byKey(Key("SecondTextFieldKey")), "");
+      await tester.pump();
+      final raisedButton = tester.firstWidget(find.byType(RaisedButton)) as RaisedButton;
+      expect((raisedButton.enabled), false);
+
+    });
+
+    testWidgets("RaisedButton is disable when user input are greater than 255 and smaller than 0", (WidgetTester tester) async {
+      await tester.pumpWidget(buildTestableWidget(HomePage()));
+      await tester.enterText(find.byKey(Key("FirstTextFieldKey")), "1111111111111");
+      await tester.enterText(find.byKey(Key("SecondTextFieldKey")), "-01");
+      await tester.pump();
+      final raisedButton = tester.firstWidget(find.byType(RaisedButton)) as RaisedButton;
+      expect((raisedButton.enabled), false);
+
+    });
+
+    testWidgets("RaisedButton is disable when user inputs are both non-binary numbers", (WidgetTester tester) async {
+      await tester.pumpWidget(buildTestableWidget(HomePage()));
+      await tester.enterText(find.byKey(Key("FirstTextFieldKey")), "112");
+      await tester.enterText(find.byKey(Key("SecondTextFieldKey")), "107");
+      await tester.pump();
+      final raisedButton = tester.firstWidget(find.byType(RaisedButton)) as RaisedButton;
+      expect((raisedButton.enabled), false);
+    });
+
+    testWidgets("RaisedButton is able when user inputs are both valid", (WidgetTester tester) async {
+      await tester.pumpWidget(buildTestableWidget(HomePage()));
+      await tester.enterText(find.byKey(Key("FirstTextFieldKey")), "11");
+      await tester.enterText(find.byKey(Key("SecondTextFieldKey")), "10");
+      await tester.pump();
+      final raisedButton = tester.firstWidget(find.byType(RaisedButton)) as RaisedButton;
+      expect((raisedButton.enabled), true);
+    });
+  });
   });
 }

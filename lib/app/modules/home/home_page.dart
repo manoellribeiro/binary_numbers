@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
     return showDialog(
         context: context,
         builder: (_){
-          return ResultAlertDialogWidget(controller.resultText
+          return ResultAlertDialogWidget(controller.resultText, Key("AlertDialog")
               );
         });
   }
@@ -126,6 +126,7 @@ class _HomePageState extends State<HomePage> {
                       child: Observer(
                         builder: (_){
                           return RaisedButton(
+                            key: Key("RaisedButton"),
                             color: Color(0xff0AF9ED),
                             disabledColor: Colors.grey,
                             onPressed: ((controller.validateFirstBinaryNumberForm) & (controller.validateSecondBinaryNumberForm)) ?(){

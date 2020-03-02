@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 class ResultAlertDialogWidget extends StatelessWidget {
 
+  final Key key;
   final String resultNumber;
 
-  ResultAlertDialogWidget(this.resultNumber);
+  ResultAlertDialogWidget(this.resultNumber, this.key);
 
   @override
   Widget build(BuildContext context) {
